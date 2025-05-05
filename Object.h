@@ -28,6 +28,10 @@ public:
 
 		//t_matrix.GetArr();
 	}
+	void Scale(Vector3D S)
+	{
+		transform(Array4x4::Scale(S));
+	}
 
 	void transform(Array4x4 t)
 	{
@@ -38,28 +42,29 @@ public:
 	{
 		tris = 
 		{
-			{ Vector4D{0.0, 0.0, 0.0, 1.0},    Vector4D{0.0, 1.0, 0.0, 1.0},    Vector4D{1.0, 1.0, 0.0, 1.0} },
-			{ Vector4D{0.0, 0.0, 0.0, 1.0},    Vector4D{1.0, 1.0, 0.0, 1.0},    Vector4D{1.0, 0.0, 0.0, 1.0} },
 
-			{ Vector4D{1.0, 0.0, 0.0, 1.0},    Vector4D{1.0, 1.0, 0.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0} },
-			{ Vector4D{1.0, 0.0, 0.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0},    Vector4D{1.0, 0.0, 1.0, 1.0} },
+			{ Vector4D{-1.0, -1.0, -1.0, 1.0},    Vector4D{-1.0, 1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, -1.0, 1.0} },
+			{ Vector4D{-1.0, -1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, -1.0, 1.0},    Vector4D{1.0, -1.0, -1.0, 1.0} },
 
-			{ Vector4D{1.0, 0.0, 1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0},    Vector4D{0.0, 1.0, 1.0, 1.0} },
-			{ Vector4D{1.0, 0.0, 1.0, 1.0},    Vector4D{0.0, 1.0, 1.0, 1.0},    Vector4D{0.0, 0.0, 1.0, 1.0} },
+			{ Vector4D{1.0, -1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0} },
+			{ Vector4D{1.0, -1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0},    Vector4D{1.0, -1.0, 1.0, 1.0} },
 
-			{ Vector4D{0.0, 0.0, 1.0, 1.0},    Vector4D{0.0, 1.0, 1.0, 1.0},    Vector4D{0.0, 1.0, 0.0, 1.0} },
-			{ Vector4D{0.0, 0.0, 1.0, 1.0},    Vector4D{0.0, 1.0, 0.0, 1.0},    Vector4D{0.0, 0.0, 0.0, 1.0} },
+			{ Vector4D{1.0, -1.0, 1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0},    Vector4D{-1.0, 1.0, 1.0, 1.0} },
+			{ Vector4D{1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, 1.0, 1.0, 1.0},    Vector4D{-1.0, -1.0, 1.0, 1.0} },
 
-			{ Vector4D{0.0, 1.0, 0.0, 1.0},    Vector4D{0.0, 1.0, 1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0} },
-			{ Vector4D{0.0, 1.0, 0.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0},    Vector4D{1.0, 1.0, 0.0, 1.0} },
+			{ Vector4D{-1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, 1.0, 1.0, 1.0},    Vector4D{-1.0, 1.0, -1.0, 1.0} },
+			{ Vector4D{-1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, 1.0, -1.0, 1.0},    Vector4D{-1.0, -1.0, -1.0, 1.0} },
 
-			{ Vector4D{1.0, 0.0, 1.0, 1.0},    Vector4D{0.0, 0.0, 1.0, 1.0},    Vector4D{0.0, 0.0, 0.0, 1.0} },
-			{ Vector4D{1.0, 0.0, 1.0, 1.0},    Vector4D{0.0, 0.0, 0.0, 1.0},    Vector4D{1.0, 0.0, 0.0, 1.0} }
+			{ Vector4D{-1.0, 1.0, -1.0, 1.0},    Vector4D{-1.0, 1.0, 1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0} },
+			{ Vector4D{-1.0, 1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0},    Vector4D{1.0, 1.0, -1.0, 1.0} },
+
+			{ Vector4D{1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, -1.0, -1.0, 1.0} },
+			{ Vector4D{1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, -1.0, -1.0, 1.0},    Vector4D{1.0, -1.0, -1.0, 1.0} }
 		};
 
 	}
 
-	Array4x4 model() { return Array4x4::Translation(pos)*t_matrix; }
+	Array4x4 model() { return  Array4x4::Translation(pos)*t_matrix; }
 
 	void Translate(Vector3D dv)
 	{

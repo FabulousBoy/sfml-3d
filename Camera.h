@@ -14,7 +14,7 @@ public:
 
 	Camera(int W, int H, float zF, float zN,float fov)
 	{
-		_asp = W / H;
+		_asp = W/H;
 
 		SP = Array4x4::Screen(W, H)* Array4x4::Projection_Array(fov,_asp,zF,zN);
 	}

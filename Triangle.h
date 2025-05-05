@@ -13,7 +13,7 @@ public:
 
 	Triangle() = default;
 
-	Triangle(Vector4D p1, Vector4D p2, Vector4D p3, sf::Color color = { 90,145,30,20 })
+	Triangle(Vector4D p1, Vector4D p2, Vector4D p3, sf::Color color = { 90,145,30,50 })
 		:_points{p1,p2,p3},_color(color){}
 
 	Vector3D position()

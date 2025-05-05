@@ -16,8 +16,16 @@ public:
 	Scene(Object *o, Camera *c)
 		:obj(o), cam(c){}
 
-	void UpdateScene()
+	void UpdateScene(float dt)
 	{
+		float rotate = dt * 1.05;
+
+		(*obj).RotateObject(Vector3D{ 
+			rotate,
+			rotate,
+			rotate
+			});
+			
 
 	}
 
@@ -54,9 +62,6 @@ public:
 		/*for(auto t: triShape)
 			window->draw(t);*/
 
-		printf("%2g\n", tri[0][0].x());
-		printf("%2g\n", tri[0][0].y());
-		system("cls");
 	}
 
 };

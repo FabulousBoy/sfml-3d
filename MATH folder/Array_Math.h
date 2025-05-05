@@ -186,7 +186,7 @@ public:
 
 		float t = tanf(PI*F*0.5 / 180);
 
-		P._arr[0][0] = 1 / (t*A);
+		P._arr[0][0] = 1 / t * A;
 		P._arr[1][1] = 1 / t;
 
 		P._arr[2][2] = ZF / (ZF - ZN);

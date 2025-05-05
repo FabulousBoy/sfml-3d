@@ -4,7 +4,7 @@
 float dt;
 sf::Clock dtClock;
 
-int wW = 640,	wH = 480;
+int wW = 640,	wH = 640;
 
 Object cube;
 
@@ -26,18 +26,13 @@ int main()
 	window.setFramerateLimit(60);
 
 	cube.Cube();
-	cube.Translate(Vector3D{0,0,2});
+	cube.Translate(Vector3D{0,0,7});
+	cube.Scale(Vector3D{3,3,3});
 
 	while (window.isOpen())
 	{
 		UpdateDt();
-		S.UpdateScene();
-
-		cube.RotateObject(Vector3D{ 
-			(float)(dt * 1.05),
-			(float)(dt * 1.05),
-			(float)(dt * 1.05) 
-			});
+		S.UpdateScene(dt);
 
 		sf::Event event;
 		while (window.pollEvent(event))

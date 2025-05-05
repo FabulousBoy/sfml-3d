@@ -102,11 +102,11 @@ public:
 
 	Vector3D operator + (Vector3D other)
 	{
-		Vector3D result;
-
-		for (int i = 0; i < 3; i++)
-			result._arr[i] = _arr[i] + other._arr[i];
-		return result;
+		return Vector3D{
+			x() + other.x(),
+			y() + other.y(),
+			z() + other.z()
+		};
 	}
 	Vector3D operator - (Vector3D other)
 	{
@@ -129,7 +129,9 @@ public:
 
 	void GetArr()
 	{
-		printf("%2g", x(), y(), z());
+		printf("%2g", x());
+		printf("%2g", y());
+		printf("%2g", z());
 		printf("\n");
 	}
 
