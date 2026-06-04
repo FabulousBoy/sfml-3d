@@ -26,38 +26,41 @@ public:
 		angl = angl + R;		
 		transform(Array4x4::Rotation(R));
 
-		//t_matrix.GetArr();
 	}
 	void Scale(Vector3D S)
 	{
 		transform(Array4x4::Scale(S));
 	}
-
 	void transform(Array4x4 t)
 	{
 		t_matrix = t*t_matrix;
+	}
+
+	Vector3D position() 
+	{
+		return pos;
 	}
 
 	void Cube()
 	{
 		tris = 
 		{
-
+			//front
 			{ Vector4D{-1.0, -1.0, -1.0, 1.0},    Vector4D{-1.0, 1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, -1.0, 1.0} },
 			{ Vector4D{-1.0, -1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, -1.0, 1.0},    Vector4D{1.0, -1.0, -1.0, 1.0} },
-
-			{ Vector4D{1.0, -1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0} },
+			//left
+			{ Vector4D{1.0, -1.0, -1.0, 1.0},	Vector4D{1.0, 1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0} },
 			{ Vector4D{1.0, -1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0},    Vector4D{1.0, -1.0, 1.0, 1.0} },
-
+			//back
 			{ Vector4D{1.0, -1.0, 1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0},    Vector4D{-1.0, 1.0, 1.0, 1.0} },
 			{ Vector4D{1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, 1.0, 1.0, 1.0},    Vector4D{-1.0, -1.0, 1.0, 1.0} },
-
+			//right
 			{ Vector4D{-1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, 1.0, 1.0, 1.0},    Vector4D{-1.0, 1.0, -1.0, 1.0} },
 			{ Vector4D{-1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, 1.0, -1.0, 1.0},    Vector4D{-1.0, -1.0, -1.0, 1.0} },
-
+			//top
 			{ Vector4D{-1.0, 1.0, -1.0, 1.0},    Vector4D{-1.0, 1.0, 1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0} },
 			{ Vector4D{-1.0, 1.0, -1.0, 1.0},    Vector4D{1.0, 1.0, 1.0, 1.0},    Vector4D{1.0, 1.0, -1.0, 1.0} },
-
+			//botom
 			{ Vector4D{1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, -1.0, -1.0, 1.0} },
 			{ Vector4D{1.0, -1.0, 1.0, 1.0},    Vector4D{-1.0, -1.0, -1.0, 1.0},    Vector4D{1.0, -1.0, -1.0, 1.0} }
 		};
